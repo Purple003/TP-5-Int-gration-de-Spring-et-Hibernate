@@ -1,20 +1,16 @@
 # TP 5 : Intégration de Spring et Hibernate
 
-**Nom :** [Votre nom]  
-**Cours :** Développement JakartaEE : Spring  
-**Date :** 26 Novembre 2025
 
----
 
-## 📋 Objectif du TP
+## Objectif du TP
 
 Créer une application Java utilisant **Spring** et **Hibernate** pour gérer la persistance des données avec **MySQL**.
 
 ---
 
-## 🏗️ Structure du projet
+## Structure du projet
+<img width="612" height="850" alt="image" src="https://github.com/user-attachments/assets/d8222e5d-131d-44d5-b699-e7354ff940b5" />
 
-![Structure du projet](screenshots/01-structure-projet.png)
 
 Le projet contient :
 - **dao/** : Interface générique `IDao`
@@ -24,10 +20,7 @@ Le projet contient :
 
 ---
 
-## 📦 Dépendances Maven (pom.xml)
-
-![Dépendances Maven](screenshots/02-pom-xml.png)
-
+## Dépendances Maven (pom.xml)
 Les dépendances utilisées :
 - `spring-context` - Injection de dépendances
 - `spring-orm` - Intégration Hibernate
@@ -37,10 +30,7 @@ Les dépendances utilisées :
 
 ---
 
-## 🗃️ Configuration de la base de données
-
-![Configuration application.properties](screenshots/03-application-properties.png)
-
+##  Configuration de la base de données
 Fichier `application.properties` :
 ```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/base
@@ -51,7 +41,7 @@ spring.jpa.hibernate.ddl-auto=update
 
 ---
 
-## 📝 Entité Product
+## Entité Product
 
 ![Code Product.java](screenshots/04-entity-product.png)
 
@@ -67,10 +57,7 @@ Attributs :
 
 ---
 
-## 🔧 Interface DAO
-
-![Code IDao.java](screenshots/05-interface-dao.png)
-
+## Interface DAO
 Interface générique `IDao<T>` avec les méthodes CRUD :
 - `create(T o)` : Créer une entité
 - `delete(T o)` : Supprimer une entité
@@ -80,10 +67,7 @@ Interface générique `IDao<T>` avec les méthodes CRUD :
 
 ---
 
-## ⚙️ Implémentation DAO
-
-![Code ProductDaoImpl.java](screenshots/06-dao-implementation.png)
-
+## Implémentation DAO
 La classe `ProductDaoImpl` implémente `IDao<Product>` avec :
 - `@Repository` : Composant Spring pour l'accès aux données
 - `@Transactional` : Gestion automatique des transactions
@@ -91,10 +75,7 @@ La classe `ProductDaoImpl` implémente `IDao<Product>` avec :
 
 ---
 
-## 🔌 Configuration Spring/Hibernate
-
-![Code HibernateConfig.java](screenshots/07-hibernate-config.png)
-
+## Configuration Spring/Hibernate
 La classe `HibernateConfig` configure :
 - `@Configuration` : Classe de configuration Spring
 - `@ComponentScan` : Détection automatique des composants
@@ -107,9 +88,9 @@ La classe `HibernateConfig` configure :
 
 ---
 
-## ✅ Test de configuration (TestHibernate)
+## Test de configuration (TestHibernate)
+<img width="650" height="215" alt="Screenshot 2025-11-26 012853" src="https://github.com/user-attachments/assets/333b35ef-07eb-4a48-b926-eb352daaa8dd" />
 
-![Exécution TestHibernate](screenshots/08-test-hibernate.png)
 
 Le test vérifie que :
 - `SessionFactory` est bien configuré ✅
@@ -125,7 +106,7 @@ Transaction Manager is configured correctly.
 
 ## 🧪 Test CRUD (Presentation2)
 
-![Exécution Presentation2](screenshots/09-presentation2.png)
+<img width="682" height="397" alt="Screenshot 2025-11-26 012836" src="https://github.com/user-attachments/assets/4d57b94b-25a9-4dad-9b7d-c1ac73e4bbb2" />
 
 Le test démontre :
 1. Création d'un produit
@@ -143,21 +124,15 @@ Product{id=1, name='Produit 1', price=100.0}
 
 ---
 
-## 🗄️ Base de données MySQL
+## Base de données MySQL
 
-![Table product dans MySQL](screenshots/10-mysql-table.png)
+<img width="747" height="471" alt="image" src="https://github.com/user-attachments/assets/e9d918f8-c318-40ee-95ec-06cbaa9f7e89" />
+
 
 La table `product` est créée automatiquement par Hibernate avec :
 - `id` : Clé primaire auto-incrémentée
 - `name` : VARCHAR(255)
 - `price` : DOUBLE
-
----
-
-## 📊 Requêtes SQL générées
-
-![Requêtes SQL dans la console](screenshots/11-sql-queries.png)
-
 Hibernate génère automatiquement les requêtes SQL :
 - `CREATE TABLE` : Création de la table
 - `INSERT INTO` : Insertion des données
@@ -165,18 +140,18 @@ Hibernate génère automatiquement les requêtes SQL :
 
 ---
 
-## 🎯 Concepts clés appris
+## Concepts clés appris
 
-✅ **Injection de dépendances** avec Spring  
-✅ **ORM (Object-Relational Mapping)** avec Hibernate  
-✅ **Gestion des transactions** avec `@Transactional`  
-✅ **Pattern DAO** pour l'accès aux données  
-✅ **Configuration Spring** avec annotations  
-✅ **Annotations JPA** (`@Entity`, `@Id`, `@GeneratedValue`)  
+**Injection de dépendances** avec Spring  
+**ORM (Object-Relational Mapping)** avec Hibernate  
+**Gestion des transactions** avec `@Transactional`  
+**Pattern DAO** pour l'accès aux données  
+**Configuration Spring** avec annotations  
+**Annotations JPA** (`@Entity`, `@Id`, `@GeneratedValue`)  
 
 ---
 
-## 🚀 Comment exécuter le projet
+## Comment exécuter le projet
 
 ### 1. Prérequis
 - Java 11+
@@ -199,7 +174,7 @@ mvn clean compile
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 Ce TP a permis de comprendre :
 - L'intégration de Spring avec Hibernate
@@ -207,8 +182,7 @@ Ce TP a permis de comprendre :
 - La gestion automatique des transactions
 - Le mapping objet-relationnel (ORM)
 
-Le projet est fonctionnel et respecte toutes les étapes du TP ! ✅
 
 ---
 
-**Fin du rapport**
+**Arroche aya**
